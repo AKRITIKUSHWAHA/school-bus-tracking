@@ -1,0 +1,175 @@
+/* DriverAttendance.css */
+
+.attendance-container {
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    background: #f8fafc;
+}
+
+.attendance-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.attendance-date {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 2px 0 0 0;
+}
+
+.refresh-btn {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.refresh-btn:hover {
+    background: #dbeafe;
+    transform: rotate(180deg);
+}
+
+/* Stats Pills */
+.attendance-stats {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.stat-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.stat-present { background: #f0fdf4; color: #15803d; }
+.stat-absent  { background: #fef2f2; color: #b91c1c; }
+.stat-total   { background: #eff6ff; color: #1d4ed8; }
+
+/* Student List */
+.student-list {
+    padding: 0.5rem 0;
+}
+
+.student-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #f8fafc;
+    transition: background 0.2s;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.row-present { background: #f0fdf4; }
+.row-absent  { background: white; }
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.student-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    color: #4338ca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.student-name {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+/* Mark Buttons */
+.mark-btns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mark-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.present-btn {
+    background: #f0fdf4;
+    color: #16a34a;
+    border-color: #bbf7d0;
+}
+
+.present-btn:hover, .active-present {
+    background: #16a34a;
+    color: white;
+    border-color: #16a34a;
+}
+
+.absent-btn {
+    background: #fef2f2;
+    color: #dc2626;
+    border-color: #fecaca;
+}
+
+.absent-btn:hover, .active-absent {
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
+}
+
+.mark-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.att-loading, .att-empty {
+    text-align: center;
+    padding: 2rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .student-row { padding: 0.6rem 0.875rem; }
+    .mark-btn { padding: 4px 8px; font-size: 0.7rem; }
+    .student-name { font-size: 0.825rem; }
+}

@@ -1,0 +1,392 @@
+.parent-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Header */
+.parent-header-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #1a0533 0%, #3d0a4f 50%, #6b0f1a 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 15px rgba(107,15,26,0.3);
+}
+
+.parent-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.parent-subtitle {
+  color: #d8b4fe;
+  font-size: 0.875rem;
+  margin: 2px 0 0 0;
+}
+
+.header-right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bus-info-pill {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.toggle-stops-btn {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-stops-btn.active {
+  background: rgba(255,255,255,0.3);
+}
+
+.toggle-stops-btn:hover { background: rgba(255,255,255,0.25); }
+
+/* Map */
+.parent-map-container {
+  height: 480px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border: 3px solid white;
+  position: relative;
+}
+
+.map-status-badge {
+  position: absolute;
+  top: 14px; right: 14px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+  padding: 7px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.last-updated-badge {
+  position: absolute;
+  bottom: 14px; left: 14px;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  color: #475569;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.live-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-live {
+  background: #16a34a;
+  animation: pulse 1.5s infinite;
+}
+
+.dot-idle { background: #94a3b8; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.95); opacity: 1; }
+  50%       { transform: scale(1.2);  opacity: 0.5; }
+}
+
+.status-text-bold { font-weight: 700; color: #1e293b; font-size: 0.8rem; }
+
+/* Stops Legend */
+.stops-legend {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.stops-legend-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem 0;
+}
+
+.stops-legend-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  padding: 5px 12px 5px 6px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e293b;
+  border: 1px solid #f1f5f9;
+}
+
+.legend-num {
+  width: 22px; height: 22px;
+  background: #7c3aed;
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .parent-map-container { height: 300px; border-radius: 1rem; }
+  .parent-title { font-size: 1.1rem; }
+  .parent-header-new { padding: 1rem; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .parent-map-container { height: 380px; }
+}
+
+/* ── Stop Status Banner ──────────────────── */
+.stop-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #1a0533, #3d0a4f);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 15px rgba(61,10,79,0.3);
+}
+
+.stop-status-current, .stop-status-next {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stop-status-label {
+  font-size: 0.7rem;
+  color: #d8b4fe;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stop-status-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.stop-status-name.next { color: #fde68a; }
+
+.stop-status-arrow {
+  font-size: 1.5rem;
+  color: #a855f7;
+  font-weight: 700;
+}
+
+.stop-status-done {
+  color: #86efac;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ── Stops Timeline Card ─────────────────── */
+.stops-timeline-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  overflow-x: auto;
+}
+
+.stops-timeline-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+}
+
+.stops-timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: max-content;
+  padding-bottom: 0.25rem;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 70px;
+}
+
+.tl-dot {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.tl-done .tl-dot    { background: #22c55e; color: white; }
+.tl-current .tl-dot { background: #f59e0b; color: white; animation: tl-pulse 1.5s infinite; }
+.tl-upcoming .tl-dot{ background: #e2e8f0; color: #94a3b8; }
+
+@keyframes tl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(245,158,11,0); }
+}
+
+.tl-name {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #475569;
+  text-align: center;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tl-done .tl-name    { color: #16a34a; }
+.tl-current .tl-name { color: #d97706; font-weight: 800; }
+
+.tl-line {
+  height: 3px;
+  width: 30px;
+  background: #e2e8f0;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.tl-line-done { background: #22c55e; }
+
+/* ── Driver Route Progress ───────────────── */
+.route-progress-card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid #f1f5f9;
+  margin-top: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.progress-label { font-size: 0.75rem; font-weight: 700; color: #64748b; }
+.progress-percent { font-size: 0.75rem; font-weight: 800; color: #7c3aed; }
+
+.progress-bar-bg {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #6b0f1a);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.stops-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.stop-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.stop-info-label { font-size: 0.65rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+.stop-info-name  { font-size: 0.9rem; font-weight: 700; color: #1e293b; }
+
+.current-stop-info .stop-info-name { color: #f59e0b; }
+.next-stop-info .stop-info-name    { color: #7c3aed; }
+
+.stop-arrow { font-size: 1.2rem; color: #cbd5e1; }
+
+.stops-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.timeline-stop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.8rem;
+}
+
+.timeline-stop .timeline-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stop-done .timeline-dot    { background: #22c55e; }
+.stop-current .timeline-dot { background: #f59e0b; }
+.stop-upcoming .timeline-dot{ background: #e2e8f0; }
+
+.stop-done .timeline-name    { color: #94a3b8; text-decoration: line-through; }
+.stop-current .timeline-name { color: #f59e0b; font-weight: 700; }
+.stop-upcoming .timeline-name{ color: #475569; }

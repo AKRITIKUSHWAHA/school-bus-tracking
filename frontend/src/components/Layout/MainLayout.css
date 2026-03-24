@@ -1,0 +1,54 @@
+/* ===== APP CONTAINER ===== */
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f3f4f6;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===== CONTENT WRAPPER ===== */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+/* ===== NAVBAR — Fixed top ===== */
+.content-wrapper > header {
+  flex-shrink: 0; /* Navbar ko shrink mat hone do */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ===== MAIN VIEWPORT — scroll kare sirf ye ===== */
+.main-viewport {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;  /* Sirf content scroll karega */
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  .main-viewport {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== CONTENT CONSTRAIN ===== */
+.content-constrain {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* ===== FOOTER — Fixed bottom ===== */
+.content-wrapper > footer {
+  flex-shrink: 0; /* Footer ko shrink mat hone do */
+}

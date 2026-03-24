@@ -1,0 +1,134 @@
+/* ===== BASE STYLES ===== */
+.login-container {
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.login-card {
+    max-width: 400px;
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-top: 10px solid #facc15;
+    text-align: center;
+}
+
+.school-title {
+    color: #1e3a8a;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.input-box {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 16px; /* 16px se kam hoga toh iOS me zoom ho jaata hai */
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #1e40af;
+}
+
+.login-btn:active {
+    background-color: #1e3a8a;
+    transform: scale(0.98);
+}
+
+/* ===== MOBILE (320px - 480px) ===== */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 16px;
+        align-items: center; /* Center mein rahega */
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .login-card {
+        padding: 28px 20px;
+        border-radius: 20px;
+        border-top-width: 7px;
+    }
+
+    .school-title {
+        font-size: 24px;
+    }
+
+    .input-box {
+        padding: 13px 12px;
+        font-size: 16px;
+        border-radius: 12px;
+        margin: 8px 0;
+    }
+
+    .login-btn {
+        padding: 14px;
+        font-size: 16px;
+        border-radius: 12px;
+        margin-top: 16px;
+    }
+}
+
+/* ===== TABLET (481px - 768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+    .login-card {
+        max-width: 420px;
+        padding: 36px 32px;
+    }
+
+    .school-title {
+        font-size: 28px;
+    }
+
+    .input-box {
+        font-size: 16px;
+    }
+
+    .login-btn {
+        font-size: 17px;
+    }
+}
+
+/* ===== DESKTOP (769px+) ===== */
+@media (min-width: 769px) {
+    .login-card {
+        max-width: 400px;
+        padding: 40px;
+    }
+
+    .school-title {
+        font-size: 32px;
+    }
+}
+
+/* ===== LARGE SCREENS (1200px+) ===== */
+@media (min-width: 1200px) {
+    .login-card {
+        max-width: 440px;
+    }
+}

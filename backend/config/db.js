@@ -1,5 +1,7 @@
 const mysql = require('mysql2');
 
+// --- PURANA LOCAL DB CODE (COMMENTED) ---
+/*
 const pool = mysql.createPool({
   host: process.env.DB_HOST || '127.0.0.1',
   user: process.env.DB_USER || 'root',
@@ -19,6 +21,34 @@ pool.getConnection((err, connection) => {
   console.log('MySQL Workbench Connected... ✅');
   connection.release();
 });
+*/
+// ----------------------------------------
+
+// --- NAYA AIVEN LIVE DB CODE ---
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,      // Aiven ka Host yahan aayega (.env se)
+  user: process.env.DB_USER,      // avnadmin
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,  // defaultdb
+  port: process.env.DB_PORT,      // Aiven wala port (e.g. 12345)
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  ssl: {
+    rejectUnauthorized: false     // Aiven live connection ke liye compulsory hai
+  }
+});
+
+// Live Connection check karne ke liye
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error('Aiven Database connection failed: ' + err.stack);
+    return;
+  }
+  console.log('Aiven MySQL Live Connected... 🚀 ✅');
+  connection.release();
+});
+// ----------------------------------------
 
 module.exports = pool.promise();
 
@@ -35,10 +65,7 @@ module.exports = pool.promise();
 // );
 
 // select * from users;
-
 // select* from buses;
-
-
 
 // -- Admin user
 // INSERT INTO users (name, email, password, role) VALUES ('School Admin', 'admin@test.com', 'admin123', 'admin');
